@@ -54,12 +54,13 @@ const closeModal = () => {
             }
             createClient(client)
             clearFilds()
-            //updateTable()
+            updateTable()
             closeModal()
         }
     }
 
- const createRow = (client) => {
+    //cria uma linha como cadastro
+ const createRow = (client, index) => {
     const newRow = document.createElement('tr')
     newRow.innerHTML = `
     <td>${client.nome}</td>
@@ -67,25 +68,53 @@ const closeModal = () => {
     <td>${client.celular}</td>
     <td>${client.cidade}</td>
     <td>
-       <button type = "button" class = "button green"> editar</button>
-       <button type = "button" class = "button red"> excluir</button>
+       <button type = "button" class = "button green" id ="edit-${index}" > editar</button>
+       <button type = "button" class = "button red" id = "delete-${index}" > excluir</button>
     </td>
     `
     document.querySelector('#tableClient>tbody').appendChild(newRow)
  }   
 
+ //atualiza lista sem duplicar conteúdo
  const clearTable = () => {
     const rows = document.querySelectorAll('#tableClient>tbody tr')
     rows.forEach(row => row.parentNode.removeChild(row))
  }
 
+ //atualiza lista do cadastro
 const updateTable = () => {
     const dbClient = readClient()
     clearTable()
     dbClient.forEach(createRow)
-}   
+}  
 
-//updateTable()    
+const fillFields = (index) => {
+    document.getElementById('nome').value = client.nome
+    document.getElementById('email').value = client.email
+    document.getElementById('celular').value = client.celular
+    document.getElementById('cidade').value = client.cidade
+}
+
+const editClient = (index) => {
+      const client = readClient()[index]
+      fillFields(client)
+      openModal()
+}
+
+const editDelete = (event) => {
+    if (event.target.type == 'button') {
+       const [action, index] = event.target.id.split('-')
+       if (action == 'edit'){
+          editClient(index)
+       }else{
+        console.log("deletando")
+
+       }
+    }
+}
+
+//chama função para atualizar lista
+updateTable() 
 
 document.getElementById('cadastrarCliente')
     .addEventListener('click', openModal)
@@ -96,4 +125,6 @@ document.getElementById('modalClose')
 document.getElementById('salvar')
     .addEventListener('click', saveClient)
 
- //updateTable() 
+document.querySelector('#tableClient>tbody')
+    .addEventListener('click', editDelete)
+
