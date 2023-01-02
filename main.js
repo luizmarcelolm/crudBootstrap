@@ -52,10 +52,16 @@ const closeModal = () => {
                 celular: document.getElementById('celular').value,
                 cidade: document.getElementById('cidade').value
             }
-            createClient(client)
-            clearFilds()
-            updateTable()
-            closeModal()
+            const index = document.getElementById('nome').dataset.index
+            if (index == 'new'){
+              createClient(client)
+              updateTable()
+              closeModal()
+            }else{
+              updateClient(index, client)
+              updateTable()
+              closeModal()
+            }
         }
     }
 
@@ -88,15 +94,17 @@ const updateTable = () => {
     dbClient.forEach(createRow)
 }  
 
-const fillFields = (index) => {
+const fillFields = (client) => {
     document.getElementById('nome').value = client.nome
     document.getElementById('email').value = client.email
     document.getElementById('celular').value = client.celular
     document.getElementById('cidade').value = client.cidade
+    document.getElementById('nome').dataset.index = client.index
 }
 
 const editClient = (index) => {
       const client = readClient()[index]
+      client.index = index
       fillFields(client)
       openModal()
 }
@@ -107,7 +115,13 @@ const editDelete = (event) => {
        if (action == 'edit'){
           editClient(index)
        }else{
-        console.log("deletando")
+        const client = readClient()[index]
+        const response = confirm(`Deseja realmente excluir o cliente ${client.nome}`)
+         if (response){
+            deleteClient(index)
+            updateTable()
+         }
+       
 
        }
     }
