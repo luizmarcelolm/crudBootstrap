@@ -5,60 +5,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap"rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/records.css">
     <link rel="stylesheet" href="css/modal.css">
     <script src="main.js" defer></script>
-    <title>CRUD DE CADASTRO</title>
+    <title>CADASTRO</title>
 </head>
 
 <body>
-    <header>
-        <h1 class="header-title">CADASTRO</h1>
-    </header>
-    <main>
-        <button type="button" class="button blue mobile" id="cadastrarCliente">Cadastrar Cliente</button>
-        <table id="tableClient" class="records">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Celular</th>
-                    <th>Cidade</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-        <div class="modal" id="modal">
-            <div class="modal-content">
-                <header class="modal-header">
-                    <h2>Novo Cliente</h2>
-                    <span class="modal-close" id="modalClose">&#10006;</span>
-                </header>
-                <form id="form" class="modal-form">
-                    <input type="text" id="nome" data-index="new" class="modal-field" placeholder="Nome do Cliente"
-                        required>
-                    <input type="email" id="email" class="modal-field" placeholder="e-mail do Cliente" required>
-                    <input type="text" id="celular" class="modal-field" placeholder="Celular do Cliente" required>
-                    <input type="text" id="cidade" class="modal-field" placeholder="Cidade do Cliente" required>
-                </form>
-                <footer class="modal-footer">
-                    <button id="salvar" class="button green">Salvar</button>
-                    <button id="cancelar" class="button blue">Cancelar</button>
-                </footer>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MENU</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">HOME <span class="sr-only">(Página atual)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/luizmarcelomota/">LINKEDIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://luizmarcelolm.github.io/Portfolio/">PORTFOLIO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="https://github.com/luizmarcelolm">GITHUB</a>
+            </li>
+          </ul>
         </div>
+    </nav>
+    <main>
+
+      <!--Modal cadastro-->
+      <div class="collapse" id="dados">
+            
+        <div class="modal-content">
+            <header class="modal-header">
+                <h3>Novo Cliente</h3>
+                <p class="modal-close" id="modalClose"></p>
+            </header>
+            <form id="form" class="modal-form">
+                <input type="text" id="nome" data-index="new" class="modal-field" placeholder="Nome do Cliente" required>
+                <input type="email" id="email" class="modal-field" placeholder="e-mail do Cliente">
+                <input type="number" id="celular" class="modal-field" placeholder="Celular do Cliente">
+                <input type="text" id="cidade" class="modal-field" placeholder="Cidade do Cliente">
+            </form>
+            <footer class="modal-footer">
+                <button id="salvar" class="btn btn-success" data-toggle="collapse" data-target="#dados">Salvar</button>
+                <button id="cancelar" class="btn btn-danger" data-toggle="collapse" data-target="#dados">Cancelar</button>
+           </footer>
+        </div>
+   </div>
+        
+        <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#dados">CADASTRAR NOVO CLIENTE</button>
+
+        <table class="table table-sm" id="tableClient">
+          <thead>
+            <tr>
+              <th class="text-primary" scope="col">NOME</th>
+              <th class="text-primary" scope="col">EMAIL</th>
+              <th class="text-primary" scope="col">CELULAR</th>
+              <th class="text-primary" scope="col">CIDADE</th>
+              <th class="text-primary" scope="col">AÇÃO</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+           
+          </tbody>
+        </table>
+            <tbody>
+             
+             
+            </tbody>
+          </table>
+          
     </main>
     <footer>
-        Luiz Marcelo Mota
+       Luiz Marcelo Mota
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
