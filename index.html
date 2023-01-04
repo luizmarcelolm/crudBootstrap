@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap"rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/records.css">
     <link rel="stylesheet" href="css/modal.css">
-    <script src="main.js" defer></script>
+    <script src="/javascript/main.js" defer></script>
     <title>CADASTRO</title>
 </head>
 
 <body>
+  <!--Menu com informações-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">MENU</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
@@ -40,54 +40,48 @@
     </nav>
     <main>
 
-      <!--Modal cadastro-->
-      <div class="collapse" id="dados">
+        <!--Modal  de cadastro-->
+        <div class="collapse" id="dados">
             
-        <div class="modal-content">
-            <header class="modal-header">
-                <h3>Novo Cliente</h3>
-                <p class="modal-close" id="modalClose"></p>
-            </header>
-            <form id="form" class="modal-form">
-                <input type="text" id="nome" data-index="new" class="modal-field" placeholder="Nome do Cliente" required>
-                <input type="email" id="email" class="modal-field" placeholder="e-mail do Cliente">
-                <input type="number" id="celular" class="modal-field" placeholder="Celular do Cliente">
-                <input type="text" id="cidade" class="modal-field" placeholder="Cidade do Cliente">
-            </form>
-            <footer class="modal-footer">
-                <button id="salvar" class="btn btn-success" data-toggle="collapse" data-target="#dados">Salvar</button>
-                <button id="cancelar" class="btn btn-danger" data-toggle="collapse" data-target="#dados">Cancelar</button>
-           </footer>
-        </div>
-   </div>
+          <div class="modal-content">
+              <header class="modal-header">
+                  <h3>CADASTRO</h3>
+                  <p class="modal-close" id="modalClose"></p>
+              </header>
+              <form id="form" class="modal-form">
+                  <input type="text" id="nome1" data-index="new" class="modal-field" placeholder="Primeiro nome" required>
+                  <input type="text" id="nome2" class="modal-field" placeholder="Segundo nome">
+                  <input type="text" id="genero" class="modal-field" placeholder="Gênero">
+                  <input type="text" id="cidade" class="modal-field" placeholder="Cidade">
+                  <input type="date" id="data" class="modal-field" placeholder="Data de nascimento">
+              </form>
+              <footer class="modal-footer">
+                  <button id="salvar" class="btn btn-success" data-toggle="collapse" data-target="#dados">Salvar</button>
+                  <button id="cancelar" class="btn btn-danger" data-toggle="collapse" data-target="#dados">Cancelar</button>
+             </footer>
+          </div>
+     </div>
         
-        <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#dados">CADASTRAR NOVO CLIENTE</button>
+     <!--Botão de cadastrar-->
+        <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#dados">NOVO CADASTRO</button>
 
+        <!--Título da tabela-->
         <table class="table table-sm" id="tableClient">
           <thead>
             <tr>
-              <th class="text-primary" scope="col">NOME</th>
-              <th class="text-primary" scope="col">EMAIL</th>
-              <th class="text-primary" scope="col">CELULAR</th>
+              <th class="text-primary" scope="col">PRIMEIRO NOME</th>
+              <th class="text-primary" scope="col">SEGUNDO NOME</th>
+              <th class="text-primary" scope="col">GÊNERO</th>
               <th class="text-primary" scope="col">CIDADE</th>
+              <th class="text-primary" scope="col">NASCIMENTO</th>
               <th class="text-primary" scope="col">AÇÃO</th>
             </tr>
           </thead>
-          <tbody>
-           
-           
-          </tbody>
-        </table>
-            <tbody>
-             
-             
-            </tbody>
-          </table>
-          
+          <tbody>   
+        </tbody>
+      
     </main>
-    <footer>
-       Luiz Marcelo Mota
-    </footer>
+    <!--Link para utilizar Javascritp do bootstrap-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
